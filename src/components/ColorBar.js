@@ -1,25 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import stled from "styled-components";
 import ColorInput from "./ColorInput";
 
 class ColorBar extends React.Component {
     render() {
         return (
-            <div
-                className={this.props.className}
-                style={{
-                    flex: 1,
-                    background: "palevioletred",
-                    display: "flex",
-                }}
-            >
-                <div
-                    style={{
-                        flex: 3,
-                        background: "red",
-                    }}
-                ></div>
+            <div className={this.props.className}>
+                <div className="flex-item">
+                    <div className="name-container">
+                        {this.props.displayName}
+                    </div>
+                </div>
                 <ColorInput />
             </div>
         );
@@ -27,5 +18,20 @@ class ColorBar extends React.Component {
 }
 
 export default styled(ColorBar)`
-    margin: 20px;
+    flex: 1;
+    display: flex;
+    background: white;
+
+    .flex-item {
+        flex: 3;
+        position: relative;
+    }
+
+    .name-container {
+        font-size: 24px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
 `;

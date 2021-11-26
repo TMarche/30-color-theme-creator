@@ -5,7 +5,7 @@ export const Spacer = styled.div`
 `;
 
 export const Header = styled.header`
-    background: #bd3b3b;
+    background: #b00020;
     height: 200px;
     color: white;
     h1 {
@@ -13,4 +13,8 @@ export const Header = styled.header`
         text-align: center;
         line-height: 200px;
     }
+`;
+
+export const FlexItem = styled.div`
+    flex: ${(props) => props.flex || 1};
 `;
