@@ -6,12 +6,15 @@ class ColorBar extends React.Component {
     render() {
         return (
             <div className={this.props.className}>
-                <div className="flex-item">
-                    <div className="name-container">
+                <div className="color-bar--flex-item">
+                    <div className="color-bar--name-container">
                         {this.props.displayName}
                     </div>
                 </div>
-                <ColorInput />
+                <ColorInput
+                    color={this.props.color}
+                    setColor={this.props.setColor}
+                />
             </div>
         );
     }
@@ -20,14 +23,16 @@ class ColorBar extends React.Component {
 export default styled(ColorBar)`
     flex: 1;
     display: flex;
-    background: white;
+    background: black;
+    gap: 2px;
 
-    .flex-item {
+    .color-bar--flex-item {
+        background: white;
         flex: 3;
         position: relative;
     }
 
-    .name-container {
+    .color-bar--name-container {
         font-size: 24px;
         position: absolute;
         left: 50%;

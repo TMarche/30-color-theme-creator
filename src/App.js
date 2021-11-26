@@ -12,22 +12,40 @@ const config = [
     {
         id: "primary",
         displayName: "Primary",
+        default: "#ffffff",
     },
     {
         id: "secondary",
         displayName: "Secondary",
+        default: "#dddddd",
     },
     {
         id: "onPrimary",
         displayName: "On Primary",
+        default: "#000000",
     },
     {
         id: "onSecondary",
         displayName: "On Secondary",
+        default: "#000000",
     },
 ];
 
 class App extends React.Component {
+    componentWillMount() {
+        config.forEach((item) => {
+            this.setState({
+                [item.id]: item.default,
+            });
+        });
+    }
+
+    setColor({ id, color }) {
+        this.setState({
+            [id]: color,
+        });
+    }
+
     render() {
         return (
             <div className={this.props.className}>
@@ -42,12 +60,19 @@ class App extends React.Component {
                                     key={x.id}
                                     id={x.id}
                                     displayName={x.displayName}
+                                    color={this.state[x.id]}
+                                    setColor={(e) =>
+                                        this.setColor({
+                                            id: x.id,
+                                            color: e.target.value,
+                                        })
+                                    }
                                 />
                             );
                         })}
                     </div>
                     <div className="app--demo-container">
-                        <DemoCard />
+                        <DemoCard colors={this.state} />
                     </div>
                 </div>
             </div>

@@ -5,7 +5,11 @@ class ColorInput extends React.Component {
     render() {
         return (
             <div className={this.props.className}>
-                <input type="color" />
+                <input
+                    type="color"
+                    value={this.props.color}
+                    onChange={(e) => this.props.setColor(e)}
+                />
             </div>
         );
     }

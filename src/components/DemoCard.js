@@ -23,22 +23,30 @@ class DemoCard extends React.Component {
 }
 
 export default styled(DemoCard)`
-    background: purple;
     position: absolute;
     display: flex;
     flex-direction: column;
-    margin: 2em;
-    height: calc(100% - 4em);
+    margin: 5em;
+    height: calc(100% - 10em);
+    border-radius: 10px;
+    box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+        0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
 
     .demo-card--bar {
+        border-radius: 10px 10px 0 0;
         background: red;
         padding: 0.5em 1em;
+        color: ${(props) => props.colors.onSecondary || "black"};
+        background-color: ${(props) => props.colors.secondary || "black"};
     }
 
     .demo-card--main-content {
+        border-radius: 0 0 10px 10px;
         flex: 1;
         padding: 0.5em 1em;
         background: yellow;
         overflow: hidden;
+        color: ${(props) => props.colors.onPrimary || "black"};
+        background: ${(props) => props.colors.primary || "black"};
     }
 `;
