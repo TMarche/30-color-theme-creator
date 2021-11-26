@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Spacer, Header } from "./components/genericStyled";
 import ColorBar from "./components/ColorBar";
+import DemoCard from "./components/DemoCard";
 
 // What kind of styling do we want to be able to do?
 // What do we want it to apply to?
@@ -33,8 +34,8 @@ class App extends React.Component {
                 <Header>
                     <h1>Color Theme Creator</h1>
                 </Header>
-                <div className="main-content">
-                    <div className="color-picker-container">
+                <div className="app--main-content">
+                    <div className="app--color-picker-container">
                         {config.map((x) => {
                             return (
                                 <ColorBar
@@ -45,7 +46,9 @@ class App extends React.Component {
                             );
                         })}
                     </div>
-                    <div className="demo-container"></div>
+                    <div className="app--demo-container">
+                        <DemoCard />
+                    </div>
                 </div>
             </div>
         );
@@ -53,12 +56,12 @@ class App extends React.Component {
 }
 
 export default styled(App)`
-    .main-content {
+    .app--main-content {
         display: flex;
         height: calc(100vh - 200px);
     }
 
-    .color-picker-container {
+    .app--color-picker-container {
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -67,7 +70,8 @@ export default styled(App)`
         padding: 2px;
     }
 
-    .demo-container {
+    .app--demo-container {
         flex: 1;
+        position: relative;
     }
 `;
