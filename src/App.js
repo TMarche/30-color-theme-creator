@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Spacer, Header } from "./components/genericStyled";
+import { Header } from "./components/genericStyled";
 import ColorBar from "./components/ColorBar";
 import DemoCard from "./components/DemoCard";
 
